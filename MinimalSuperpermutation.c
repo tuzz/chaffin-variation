@@ -1,6 +1,14 @@
 #include <math.h>
 #include <stdio.h>
 #include <string.h>
+#include <time.h>
+
+void timestamp()
+{
+    time_t ltime; /* calendar time */
+    ltime=time(NULL); /* get current cal time */
+    printf("%s",asctime( localtime(&ltime) ) );
+}
 
 #define max(a,b)(((a)>(b))?(a):(b))
 
@@ -123,6 +131,7 @@ void fillStr(short int pos, short int pfound)
                 max_perm = max(max_perm,pfound+1);
 
                 if (max_perm > max_total_perm) {
+                  timestamp();
                   max_total_perm = max_perm;
                   for(k1=0; k1<pos+1; k1++) {
                     printf("%d", curstr[k1]);
